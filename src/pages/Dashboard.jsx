@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useCallback, useEffect, useState } from "react";
 import Loader from "../components/Loader";
+import MainCard from "../components/MainCard";
+import SecondaryCard from "../components/SecondaryCard";
 
 const apiUrl = import.meta.env.VITE_BASE_URL;
 const apiKey = import.meta.env.VITE_API_WEATHER;
@@ -53,28 +55,10 @@ function Dashboard() {
                     {load ? (
                         <Loader />
                     ) : (
-                        <div className="container-card">
-                            <h2>Weather</h2>
-                            <div className="card">
-                                <div className="top">
-                                    <div className="img">
-                                    <img src={forecastCondition[0].day.condition.icon} alt={forecastCondition[0].day.condition.text} />
-                                    </div>
-                                    <div className="content">
-                                        <h4>{forecastCondition[0].day.avgtemp_c}</h4>
-                                        <p>{forecastCondition[0].day.condition.text}</p>
-                                        <span>Today - {forecastCondition[0].date}</span>
-                                    </div>
-                                </div>
-                                <div className="bottom">
-                                    <p>{forecastCondition[0].day.avgvis_km}</p>
-                                    <p>{forecastCondition[0].day.daily_chance_of_rain}</p>
-                                    <p>{forecastCondition[0].day.avghumidity}</p>
-                                    <p>{forecastCondition[0].astro.sunrise}</p>
-                                    <p>{forecastCondition[0].astro.sunset}</p>
-                                </div>
-                            </div>
-                        </div>
+                        <>
+                            <MainCard location={location} forecastCondition={forecastCondition} />
+                            <SecondaryCard forecastCondition={forecastCondition}/>
+                        </>
                     )}
                 </div>
             </main>

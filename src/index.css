@@ -9,7 +9,7 @@ body {
     width: 100vw;
     height: 100vh;
     box-sizing: border-box;
-    background: #f6eedd;
+    background: #faf2e3;
 }
 
 img {
@@ -37,3 +37,11 @@ a {
 }
 
 /* LAYOUT */
+
+
+/* RESPONSIVE */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+}
