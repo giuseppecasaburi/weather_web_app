@@ -1,0 +1,56 @@
+header {
+    height: 80px;
+    background-color: #e0ded9;
+}
+
+#nav-link {
+    width: 50%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    font-size: 1.3rem;
+}
+
+#nav-link a {
+    transition: 0.3s ease-in-out;
+}
+
+.nav-link-elem {
+    position: relative;
+    color: var(--text-blue);
+    padding: 5px 0;
+    transition: color 0.3s;
+}
+
+.nav-link-elem::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px; /* Altezza della barra */
+    background-color: var(--text-blue);
+    transition: width 0.3s ease-in-out;
+    transform: translateX(-50%);
+}
+
+.nav-link-elem:hover::after,
+.nav-link-elem.active::after {
+    background-color: var(--text-blue); /* Colore barra all'hover e quando attivo */
+    width: 100%;
+}
+
+.nav-link-elem.active {
+    transform: scale(1.1);
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 425px) {
+    #nav-link {
+        gap: 50px;
+    }
+}

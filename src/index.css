@@ -1,0 +1,38 @@
+@import './css/header.css';
+@import './css/footer.css';
+
+/* RESET */
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    background: #f6eedd;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* UTILITY */
+:root {
+    --text-blue: #1a416b;
+}
+
+.container {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.flex {
+    display: flex;
+}
+
+/* LAYOUT */
