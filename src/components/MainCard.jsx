@@ -1,10 +1,13 @@
+import Carousel from "./Carousel";
+
 function MainCard({ location, forecastCondition }) {
     return (
         <>
             <section id="weather-today">
                 <div className="container-card">
                     <h2>Meteo - {location.name} (MI)</h2>
-                    <div className="mc-card">
+                    <Carousel forecastCondition={forecastCondition}/>
+                    {/* <div className="mc-card">
                         <div className="top">
                             <div className="img">
                                 <img src={forecastCondition[0].day.condition.icon} alt={forecastCondition[0].day.condition.text} />
@@ -37,7 +40,7 @@ function MainCard({ location, forecastCondition }) {
                                 <p>{forecastCondition[0].astro.sunset}</p>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </section>
         </>

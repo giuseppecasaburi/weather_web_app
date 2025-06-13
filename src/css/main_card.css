@@ -1,3 +1,5 @@
+@import './carousel.css';
+
 .container-card {
     width: 80%;
     margin: 0 auto;
@@ -17,6 +19,7 @@
 }
 
 .mc-card {
+    display: inline;
     width: 70%;
     height: 70%;
     margin: 0 auto;
@@ -28,8 +31,6 @@
     align-items: center;
     width: 100%;
     height: 70%;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
     background-color: #325e7b;
     color: #ffff;
 }
@@ -68,8 +69,6 @@
 .bottom {
     width: 100%;
     height: 30%;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
     background-color: #dfdcd8;
     justify-content: space-around;
     text-align: center;

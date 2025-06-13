@@ -1,102 +1,115 @@
 import React, { useState } from 'react';
 // // import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-function Carousel ({forecastCondition}) {
-  const [currentIndex, setCurrentIndex] = useState(0);
+function Carousel({ forecastCondition }) {
+    const [currentIndex, setCurrentIndex] = useState(0);
 
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => 
-      prevIndex === forecastCondition.length - 1 ? 0 : prevIndex + 1
-    );
-  };
+    const nextSlide = () => {
+        setCurrentIndex((prevIndex) =>
+            prevIndex === forecastCondition.length - 1 ? 0 : prevIndex + 1
+        );
+    };
 
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) => 
-      prevIndex === 0 ? forecastCondition.length - 1 : prevIndex - 1
-    );
-  };
+    const prevSlide = () => {
+        setCurrentIndex((prevIndex) =>
+            prevIndex === 0 ? forecastCondition.length - 1 : prevIndex - 1
+        );
+    };
 
-  const goToSlide = (index) => {
-    setCurrentIndex(index);
-  };
+    const goToSlide = (index) => {
+        setCurrentIndex(index);
+    };
 
-  return (
-    <>
+    return (
+        <>
+            <div className="slider-wrapper">
+                <div className="slider-container">
+                    <div
+                        className="slider-track"
+                        style={{
+                            transform: `translateX(-${currentIndex * 100}%)`
+                        }}
+                    >
+                        {forecastCondition.map((day) => (
+                            <div key={day.id} className="slide">
+                                <div className="mc-card h">
+                                    <div className="top">
+                                        <div className="img">
+                                            <img
+                                                src={day.day.condition.icon}
+                                                alt={day.day.condition.text}
+                                            />
+                                        </div>
+                                        <div className="content">
+                                            <h4>{day.day.avgtemp_c}°</h4>
+                                            <p>{day.day.condition.text}</p>
+                                            <span>Oggi<span id="date"> - </span></span>
+                                        </div>
+                                    </div>
 
-      <div className="container">
-        <h1 className="title">
-          Slider di Card
-        </h1>
-        
-        <div className="slider-wrapper">
-          <div className="slider-container">
-            <div 
-              className="slider-track"
-              style={{
-                transform: `translateX(-${currentIndex * 100}%)`
-              }}
-            >
-              {forecastCondition.map((day) => (
-                <div key={day.id} className="slide">
-                  <div className="card">
-                    <img 
-                      src={day.day.condition.icon} 
-                      alt={day.day.condition.text}
-                      className="card-image"
-                    />
-                    <div className="card-content">
-                      <div className="card-header">
-                        <span className="tag">
-                          {day.date}
-                        </span>
-                      </div>
-                      <h3 className="card-title">
-                        {day.day.condition.text}
-                      </h3>
-                      <p className="card-description">
-                        {day.day.avgtemp_c}°
-                      </p>
+                                    <div className="bottom flex">
+                                        <div>
+                                            <span>Vento</span>
+                                            <p>{forecastCondition[0].day.avgvis_km}km/h</p>
+                                        </div>
+                                        <div>
+                                            <span>Pioggia</span>
+                                            <p>{forecastCondition[0].day.daily_chance_of_rain}%</p>
+                                        </div>
+                                        <div>
+                                            <span>Umidità</span>
+                                            <p>{forecastCondition[0].day.avghumidity}%</p>
+                                        </div>
+                                        <div>
+                                            <span>Alba</span>
+                                            <p>{forecastCondition[0].astro.sunrise}</p>
+                                        </div>
+                                        <div>
+                                            <span>Tramonto</span>
+                                            <p>{forecastCondition[0].astro.sunset}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
                     </div>
-                  </div>
                 </div>
-              ))}
+
+                <button
+                    onClick={prevSlide}
+                    className="nav-button prev-button"
+                    aria-label="Slide precedente"
+                >
+                    {/* <={24} color="#666" /> */}
+                </button>
+
+                <button
+                    onClick={nextSlide}
+                    className="nav-button next-button"
+                    aria-label="Slide successivo"
+                >
+                    {/* <ChevronRight size={24} color="#666" /> */}
+                </button>
             </div>
-          </div>
+            
+            <div className="flex indicatori">
+            <div className="indicators">
+                {forecastCondition.map((_, index) => (
+                    <button
+                        key={index}
+                        onClick={() => goToSlide(index)}
+                        className={`indicator ${index === currentIndex ? 'active' : ''}`}
+                        aria-label={`Vai alla slide ${index + 1}`}
+                    />
+                ))}
+            </div>
 
-          <button
-            onClick={prevSlide}
-            className="nav-button prev-button"
-            aria-label="Slide precedente"
-          >
-            {/* <={24} color="#666" /> */}
-          </button>
-
-          <button
-            onClick={nextSlide}
-            className="nav-button next-button"
-            aria-label="Slide successivo"
-          >
-            {/* <ChevronRight size={24} color="#666" /> */}
-          </button>
-        </div>
-
-        <div className="indicators">
-          {forecastCondition.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => goToSlide(index)}
-              className={`indicator ${index === currentIndex ? 'active' : ''}`}
-              aria-label={`Vai alla slide ${index + 1}`}
-            />
-          ))}
-        </div>
-
-        <div className="counter">
-          {currentIndex + 1} di {forecastCondition.length}
-        </div>
-      </div>
-    </>
-  );
+            <div className="counter">
+                {currentIndex + 1} di {forecastCondition.length}
+            </div>
+            </div>
+        </>
+    );
 };
 
 export default Carousel;

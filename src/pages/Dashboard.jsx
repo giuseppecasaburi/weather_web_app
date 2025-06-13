@@ -57,7 +57,6 @@ function Dashboard() {
                     ) : (
                         <>
                             <MainCard location={location} forecastCondition={forecastCondition} />
-                            <SecondaryCard forecastCondition={forecastCondition}/>
                         </>
                     )}
                 </div>

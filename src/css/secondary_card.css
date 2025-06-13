@@ -1,9 +1,0 @@
-@import './carousel.css';
-
-#weather-seven-days {
-    margin-top: 25px;
-}
-
-#weather-seven-days .container-card {
-    height: 400px;
-}
