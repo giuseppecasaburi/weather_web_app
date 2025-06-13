@@ -20,10 +20,7 @@
 
 .mc-card {
     display: inline;
-    width: 70%;
-    height: 70%;
     margin: 0 auto;
-    border-radius: 20px;
 }
 
 .top {
@@ -88,10 +85,7 @@
 @media screen and (max-width: 1024px) {
     .container-card {
         width: 90%;
-    }
-
-    .mc-card {
-        width: 90%;
+        height: 100%;
     }
 }
 
@@ -99,18 +93,13 @@
     .container-card {
         width: 100%;
     }
-
-    .mc-card {
-        width: 95%;
-    }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 480px) {
     .container-card {
         width: 100%;
         margin: 0 auto;
         background-color: #faf2e3;
-        height: 500px;
         box-shadow: none;
         border-radius: none;
     }
@@ -122,12 +111,16 @@
         font-size: 2.5rem;
     }
 
-    .mc-card {
-        width: 100%;
-    }
-
     .content #date {
         display: none;
+    }
+
+    .top {
+        height: 80%;
+    }
+
+    .bottom {
+        height: 20%;
     }
 
     .bottom div:nth-child(4),

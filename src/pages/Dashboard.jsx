@@ -2,7 +2,6 @@ import axios from "axios";
 import { useCallback, useEffect, useState } from "react";
 import Loader from "../components/Loader";
 import MainCard from "../components/MainCard";
-import SecondaryCard from "../components/SecondaryCard";
 
 const apiUrl = import.meta.env.VITE_BASE_URL;
 const apiKey = import.meta.env.VITE_API_WEATHER;

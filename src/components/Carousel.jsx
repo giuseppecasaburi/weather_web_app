@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 // // import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 function Carousel({ forecastCondition }) {
@@ -43,7 +44,7 @@ function Carousel({ forecastCondition }) {
                                         <div className="content">
                                             <h4>{day.day.avgtemp_c}°</h4>
                                             <p>{day.day.condition.text}</p>
-                                            <span>Oggi<span id="date"> - </span></span>
+                                            <span id="date">{day.date.split('-').reverse().join('-')}</span>
                                         </div>
                                     </div>
 
@@ -80,7 +81,7 @@ function Carousel({ forecastCondition }) {
                     className="nav-button prev-button"
                     aria-label="Slide precedente"
                 >
-                    {/* <={24} color="#666" /> */}
+                    <MdKeyboardArrowLeft />
                 </button>
 
                 <button
@@ -88,7 +89,7 @@ function Carousel({ forecastCondition }) {
                     className="nav-button next-button"
                     aria-label="Slide successivo"
                 >
-                    {/* <ChevronRight size={24} color="#666" /> */}
+                    <MdKeyboardArrowRight />
                 </button>
             </div>
             
