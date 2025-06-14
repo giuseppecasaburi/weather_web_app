@@ -1,4 +1,13 @@
 footer {
-    height: 80px;
     background-color: #e0ded9;
+    color: var(--text-blue);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+    footer {
+        flex-direction: column;
+    }
 }

@@ -92,22 +92,22 @@ function Carousel({ forecastCondition }) {
                     <MdKeyboardArrowRight />
                 </button>
             </div>
-            
-            <div className="flex indicatori">
-            <div className="indicators">
-                {forecastCondition.map((_, index) => (
-                    <button
-                        key={index}
-                        onClick={() => goToSlide(index)}
-                        className={`indicator ${index === currentIndex ? 'active' : ''}`}
-                        aria-label={`Vai alla slide ${index + 1}`}
-                    />
-                ))}
-            </div>
 
-            <div className="counter">
-                {currentIndex + 1} di {forecastCondition.length}
-            </div>
+            <div className="flex indicatori">
+                <div className="indicators">
+                    {forecastCondition.map((_, index) => (
+                        <button
+                            key={index}
+                            onClick={() => goToSlide(index)}
+                            className={`indicator ${index === currentIndex ? 'active' : ''}`}
+                            aria-label={`Vai alla slide ${index + 1}`}
+                        />
+                    ))}
+                </div>
+
+                <div className="counter">
+                    {currentIndex + 1} di {forecastCondition.length}
+                </div>
             </div>
         </>
     );
