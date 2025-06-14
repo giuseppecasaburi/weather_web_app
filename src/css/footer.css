@@ -1,6 +1,4 @@
 footer {
     height: 80px;
-
-    /* DEBUG */
-    border: 2px solid brown;
+    background-color: #e0ded9;
 }

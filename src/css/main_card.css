@@ -40,6 +40,7 @@
 .content {
     width: 50%;
     text-align: center;
+    padding: 0 20px;
 }
 
 .content h4 {
@@ -57,7 +58,7 @@
 }
 
 .img img {
-    width: 50%;
+    width: 40%;
     display: flex;
     justify-content: center;
     margin: auto;
@@ -70,7 +71,7 @@
     justify-content: space-around;
     text-align: center;
     color: var(--text-blue);
-    padding: 20px 0 0;
+    padding: 20px 0;
 }
 
 .bottom span {
