@@ -33,7 +33,7 @@ function Carousel({ forecastCondition }) {
                     >
                         {forecastCondition.map((day) => (
                             <div key={day.id} className="slide">
-                                <div className="mc-card h">
+                                <div className="mc-card">
                                     <div className="top">
                                         <div className="img">
                                             <img

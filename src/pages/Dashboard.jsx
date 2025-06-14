@@ -1,12 +1,19 @@
 import axios from "axios";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import Loader from "../components/Loader";
 import MainCard from "../components/MainCard";
+import { useLocation } from "react-router-dom";
 
 const apiUrl = import.meta.env.VITE_BASE_URL;
 const apiKey = import.meta.env.VITE_API_WEATHER;
 
 function Dashboard() {
+    const locationUrl = useLocation();
+
+    const queryParams = useMemo(() => new URLSearchParams(locationUrl.search), [locationUrl.search]);
+
+    const long = queryParams.get('long') || 45.3097228;
+    const lat = queryParams.get('lat') || 9.503716
 
     const [forecastCondition, setForecastCondition] = useState({});
     const [location, setLocation] = useState({});
@@ -14,7 +21,7 @@ function Dashboard() {
     const [load, setLoad] = useState(true);
 
     const lodiObj = {
-        "q": "45.3097228,9.503716",
+        "q": `${long}, ${lat}`,
         "days": "7",
         "lang": "it",
         "custom_id": "Lodi"

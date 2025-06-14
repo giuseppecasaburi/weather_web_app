@@ -1,0 +1,69 @@
+#settings-page .container-card {
+    margin-top: 30px;
+    height: 100%;
+}
+
+#settings-page .container-card h2 {
+    color: #ffff;
+}
+
+.sc-card {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 50px 0 0;
+    width: 80%;
+    min-height: 150px;
+}
+
+.sc-top {
+    text-align: center;
+    background-color: #325e7b;
+    color: #ffff;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.sc-bottom {
+    background-color: #dfdcd8;
+    text-align: center;
+    color: var(--text-blue);
+    padding: 20px 0;
+}
+
+label {
+    font-size: 1.3rem;
+    display: block;
+    padding: 10px 0 5px;
+}
+
+input {
+    border-radius: 5px;
+    border: none;
+    height: 20px;
+}
+
+#settings-page button {
+    border-radius: 20px;
+    border: none;
+    margin: 20px 0;
+    height: 30px;
+    padding: 0 20px;
+    font-size: 1rem;
+    color: #ffff;
+    background-color: var(--text-blue);
+}
+
+#change-location {
+    padding-bottom: 50px;
+}
+
+@media screen and (max-width: 480px) {
+    .sc-top {
+        height: 80%;
+    }
+
+    .sc-bottom {
+        height: 20%;
+    }
+}

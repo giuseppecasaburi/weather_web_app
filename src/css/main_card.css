@@ -1,5 +1,9 @@
 @import './carousel.css';
 
+#weather-today {
+    padding: 80px 0 0;
+}
+
 .container-card {
     width: 80%;
     margin: 0 auto;
