@@ -55,6 +55,8 @@
 .content p {
     font-size: 2rem;
     margin: 10px 0;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 .content span {
@@ -115,10 +117,10 @@
         padding: 10px 0 20px;
         font-size: 2.5rem;
     }
-
+/* 
     .content #date {
         display: none;
-    }
+    } */
 
     .top {
         height: 80%;
