@@ -1,4 +1,5 @@
 @import './main_card.css';
+@import './errormodal.css';
 
 main {
     width: 100%;

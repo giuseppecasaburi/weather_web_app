@@ -7,10 +7,9 @@ function SettingsPage() {
         e.preventDefault();
 
         const form = e.target;
-        const long = form.long.value;
-        const lat = form.lat.value;
+        const city_name = form.city_name.value;
 
-        navigate(`/?long=${encodeURIComponent(long)}&lat=${encodeURIComponent(lat)}`);
+        navigate(`/?city_name=${encodeURIComponent(city_name)}`);
     }
 
 
@@ -27,12 +26,8 @@ function SettingsPage() {
                                 <div className="sc-bottom">
                                     <form onSubmit={handleSubmit}>
                                         <div>
-                                            <label htmlFor="long">Longitudine</label>
-                                            <input type="text" name="long" placeholder="41.902783" />
-                                        </div>
-                                        <div>
-                                            <label htmlFor="lat">Latitudine</label>
-                                            <input type="text" name="lat" placeholder="12.496365" />
+                                            <label htmlFor="city_name">Nome Città</label>
+                                            <input type="text" name="city_name" placeholder="Milano" />
                                         </div>
                                         <button type="submit">Aggiorna Ricerca</button>
                                     </form>
