@@ -1,4 +1,4 @@
-function ErrorModal() {
+function ErrorModal( {error_text} ) {
     const handleReload = () => {
         window.location.reload();
     };
@@ -11,7 +11,7 @@ function ErrorModal() {
                 </div>
 
                 <div className="modal-body">
-                    <p className="modal-description">Qualcosa è andato storto. Ricarica la pagina o riprova più tardi.</p>
+                    <p className="modal-description">{error_text}</p>
                 </div>
 
                 <div className="modal-footer">

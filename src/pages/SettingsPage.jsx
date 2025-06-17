@@ -1,7 +1,10 @@
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import InputError from "../utility/InputError";
 
 function SettingsPage() {
     const navigate = useNavigate();
+    const [error, setError] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -9,12 +12,17 @@ function SettingsPage() {
         const form = e.target;
         const city_name = form.city_name.value;
 
-        navigate(`/?city_name=${encodeURIComponent(city_name)}`);
-    }
+        const validationError = InputError(city_name);
+        if (validationError) {
+            setError(validationError);
+            return;
+        }
 
+        setError("");
+        navigate(`/?city_name=${encodeURIComponent(city_name.trim())}`);
+    };
 
     return (
-        <>
             <main>
                 <section id="settings-page">
                     <div className="container-card">
@@ -27,8 +35,15 @@ function SettingsPage() {
                                     <form onSubmit={handleSubmit}>
                                         <div>
                                             <label htmlFor="city_name">Nome Città</label>
-                                            <input type="text" name="city_name" placeholder="Milano" />
+                                            <input
+                                                type="text"
+                                                name="city_name"
+                                                placeholder="Milano"
+                                            />
                                         </div>
+                                        {error && (
+                                            <p>{error}</p>
+                                        )}
                                         <button type="submit">Aggiorna Ricerca</button>
                                     </form>
                                 </div>
@@ -37,8 +52,7 @@ function SettingsPage() {
                     </div>
                 </section>
             </main>
-        </>
-    )
+    );
 }
 
 export default SettingsPage;

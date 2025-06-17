@@ -58,6 +58,11 @@ input {
     padding-bottom: 50px;
 }
 
+form p {
+    color: #ff0000;
+    margin-top: 5px;
+}
+
 @media screen and (max-width: 480px) {
     .sc-top {
         height: 80%;

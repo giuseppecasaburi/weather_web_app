@@ -31,8 +31,8 @@ function Carousel({ forecastCondition }) {
                             transform: `translateX(-${currentIndex * 100}%)`
                         }}
                     >
-                        {forecastCondition.map((day) => (
-                            <div key={day.id} className="slide">
+                        {forecastCondition.map((day, index) => (
+                            <div key={index} className="slide">
                                 <div className="mc-card">
                                     <div className="top">
                                         <div className="img">
