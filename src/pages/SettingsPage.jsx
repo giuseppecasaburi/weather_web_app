@@ -3,12 +3,14 @@ import { useState } from "react";
 import InputError from "../utility/InputError";
 
 function SettingsPage() {
+    // Hook di navigazione
     const navigate = useNavigate();
     const [error, setError] = useState("");
 
+    // Handle gestore del submit di ricerca
     const handleSubmit = (e) => {
         e.preventDefault();
-
+        
         const form = e.target;
         const city_name = form.city_name.value;
 
@@ -18,7 +20,6 @@ function SettingsPage() {
             return;
         }
 
-        setError("");
         navigate(`/?city_name=${encodeURIComponent(city_name.trim())}`);
     };
 

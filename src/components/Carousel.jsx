@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
-// // import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 function Carousel({ forecastCondition }) {
     const [currentIndex, setCurrentIndex] = useState(0);

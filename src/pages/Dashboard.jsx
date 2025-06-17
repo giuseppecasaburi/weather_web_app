@@ -10,17 +10,19 @@ const apiUrl = import.meta.env.VITE_BASE_URL;
 const apiKey = import.meta.env.VITE_API_WEATHER;
 
 function Dashboard() {
+    // Lettura Url e impostazione error
     const locationUrl = useLocation();
     const [error, setError] = useState("");
 
-    const queryParams = useMemo(() => new URLSearchParams(locationUrl.search), [locationUrl.search]);
-
-    const city_name = queryParams.get('city_name') || "Lodi";
-
+    // Stati informazioni meteo
     const [forecastCondition, setForecastCondition] = useState([]);
     const [location, setLocation] = useState({});
 
     const [load, setLoad] = useState(true);
+
+    // Creazione oggetto e dati per la ricerca
+    const queryParams = useMemo(() => new URLSearchParams(locationUrl.search), [locationUrl.search]);
+    const city_name = queryParams.get('city_name') || "Lodi";
 
     const queryObj = {
         "q": `${city_name}, Italy`,
@@ -59,15 +61,15 @@ function Dashboard() {
     }
 
     return (
-            <main>
-                <div className="container">
-                    {load ? (
-                        <Loader />
-                    ) : (
-                        <MainCard location={location} forecastCondition={forecastCondition} />
-                    )}
-                </div>
-            </main>
+        <main>
+            <div className="container">
+                {load ? (
+                    <Loader />
+                ) : (
+                    <MainCard location={location} forecastCondition={forecastCondition} />
+                )}
+            </div>
+        </main>
     )
 }
 

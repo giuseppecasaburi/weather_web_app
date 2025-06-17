@@ -1,6 +1,7 @@
 function ApiHandleError(error) {
     // Se arriva risposta dal server
     if (error.response) {
+        // Destrutturazione
         const { status, data } = error.response;
 
         // Se WeatherAPI restituisce un corpo con errore strutturato
